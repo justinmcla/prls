@@ -36,6 +36,10 @@ class PRLS::CLI::PRO
         puts "Which play would you like to learn more about?"
         puts ""
         choice = gets.chomp
+        while choice.to_i > self.all.size + 1
+            puts "Invalid entry, please try again."
+            choice = gets.chomp
+        end
         self.play_details(choice.to_i - 1)
         choice = 0
     end
