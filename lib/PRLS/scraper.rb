@@ -87,20 +87,43 @@ class PRLS::CLI::Scraper
         @mti_content[:author] = @mti_content[:author].uniq.join(', ')
 
         @mti_content
-    end
+        end
 
     def bpp_index(url)
-    bpp_index = Nokogiri::HTML(open(url))
-    @bpp_plays = []
+        bpp_index = Nokogiri::HTML(open(url))
+        @bpp_plays = []
 
-    bpp_index.css('.product-details').each do |play|
-        @bpp_plays << {
-            :title => play.css('a').text.chomp(' [read more]'),
-            :url => play.css('a').attribute('href').value
-        }
+        bpp_index.css('.product-details').each do |play|
+            @bpp_plays << {
+                :title => play.css('a').text.chomp(' [read more]'),
+                :url => play.css('a').attribute('href').value
+            }
+        end
+        @bpp_plays
     end
-    @bpp_plays
+
+    def bpp_info(url)
+        bpp_data = Nokogiri::HTML(open(url))
+        play = bpp_data.css('.product-essential')
+
+
+        @bpp_content = {:author => play.css('.authorbilling').text, :blurb => []}
+        
+        if play.css('.description p').first != nil
+            @bpp_content[:summary] = play.css('.description p').first.text
+        end
+
+        play.css('#tab-reviews p').each do |review|
+            if review != nil
+            @bpp_content[:blurb] << review.text
+            end
+        end
+
+        @bpp_content[:blurb] = @bpp_content[:blurb].join(' ')
+
+        @bpp_content
     end
+
 
 
 end
