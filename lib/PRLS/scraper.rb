@@ -51,7 +51,7 @@ class PRLS::CLI::Scraper
     def concord_info(url)
         concord_info = Nokogiri::HTML(open(url))
         @concord_content = {
-            :author => concord_info.css('.type-large-credits').css('a').first.text,
+            :author => concord_info.css('.type-large-credits').css('a').text,
             :summary => concord_info.css('.pdp-section .type-regular').css('.longer-content').text,
             :blurb => []
         }
