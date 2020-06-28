@@ -57,15 +57,17 @@ class PRLS::CLI::PRO
         puts ""
         if self.all[index].summary == nil || self.all[index].summary == ""
             puts "No summary found."
+        else
+            puts self.all[index].summary.split.join(' ').to_s.wrap 80
         end
-        puts self.all[index].summary
         puts ""
         puts "REVIEWS"
         puts ""
         if self.all[index].blurb == nil || self.all[index].blurb == ""
             puts "No reviews found."
+        else
+            puts self.all[index].blurb.split.join(' ').to_s.wrap 80
         end
-        puts self.all[index].blurb
         puts ""
         puts "Learn more about #{self.all[index].title} here: #{self.all[index].url}"
         puts ""
