@@ -23,11 +23,6 @@ class PRLS::CLI
         puts ""
         puts "To exit, type 'exit'."
         puts ""
-        #counter = 1
-        #pro_arr.each do |pro|
-        #    puts "#{counter}. #{pro}"
-        #    counter += 1
-        #end
     end
 
     def menu
@@ -35,23 +30,35 @@ class PRLS::CLI
         while input != 'exit'
         pros
         input = gets.chomp.downcase
-        puts ""
-        puts "Loading..."
-        puts ""
         case input.to_s
         when '1'
+            puts ""
+            puts "Loading..."
+            puts ""
             DPS.get_plays
             DPS.list_plays
         when '2'
+            puts ""
+            puts "Loading..."
+            puts ""
             CONCORD.get_plays
             CONCORD.list_plays
         when '3'
+            puts ""
+            puts "Loading..."
+            puts ""
             MTI.get_plays
             MTI.list_plays
         when '4'
+            puts ""
+            puts "Loading..."
+            puts ""
             PLAYSCRIPTS.get_plays
             PLAYSCRIPTS.list_plays
         when '5'
+            puts ""
+            puts "Loading..."
+            puts ""
             BPP.get_plays
             BPP.list_plays
         when 'exit'
