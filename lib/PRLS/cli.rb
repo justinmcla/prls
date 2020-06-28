@@ -16,7 +16,7 @@ class PRLS::CLI
         puts "Select a PRO to see their currently featured plays:"
         puts ""
         puts "1. Dramatist's Play Service, Inc."
-        puts "2. Concord Theatricals (formerly Samuel French, Ltd.) ****TO BE ADDED****"
+        puts "2. Concord Theatricals (formerly Samuel French, Ltd.)"
         puts "3. Music Theatre International"
         puts "4. Playscripts, Inc. ****TO BE ADDED****"
         puts "5. Broadway Play Publishing, Inc."

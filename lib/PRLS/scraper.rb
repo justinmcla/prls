@@ -36,6 +36,32 @@ class PRLS::CLI::Scraper
         @dps_content
     end
 
+    def concord_index(url)
+        concord_index = Nokogiri::HTML(open(url))
+        @concord_plays = []
+        concord_index.css('.card__item--text').each do |play|
+            @concord_plays << {
+                :title => play.css('a').text,
+                :url => "https://www.concordtheatricals.com#{play.css('a').attribute('href').value}"
+            }
+        end
+        @concord_plays
+    end
+
+    def concord_info(url)
+        concord_info = Nokogiri::HTML(open(url))
+        @concord_content = {
+            :author => concord_info.css('.type-large-credits').css('a').text,
+            :summary => concord_info.css('.pdp-section .type-regular').css('.longer-content').text,
+            :blurb => []
+        }
+        concord_info.css('type-regular').css('.pdp-sub-section').each do |review|
+            @concord_content[:blurb] << review.text
+        end
+        @concord_content[:blurb] = @concord_content[:blurb].join(' ')
+        @concord_content
+    end
+
     def mti_index(url)
         mti_index = Nokogiri::HTML(open(url))
         @mti_plays = []
