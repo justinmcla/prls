@@ -96,6 +96,31 @@ class PRLS::CLI::Scraper
         @mti_content
     end
 
+    def playscripts_index(url)
+        playscripts_index = Nokogiri::HTML(open(url))
+        @playscripts_plays = []
+        playscripts_index.css('.theater-story').each do |play|
+            @playscripts_plays << {
+                :title => play.css('.infos').css('.text').text,
+                :url => "https://www.playscripts.com#{play.css('.infos').css('a').attribute('href').value}"
+            }
+        end
+        @playscripts_plays
+    end
+
+    def playscripts_info(url)
+        playscripts_info = Nokogiri::HTML(open(url))
+        @playscripts_content = {
+            :summary => playscripts_info.css('.infos').css('.story-description').text,
+            :author => playscripts_info.css('.infos').css('.playauthors').css('a').text,
+        }
+        blurb_check = playscripts_info.css('.script-more-info').css('.content').css('.p-review').first
+        if blurb_check != nil
+            @playscripts_content[:blurb] = blurb_check.text
+        end
+        @playscripts_content
+    end
+
     def bpp_index(url)
         bpp_index = Nokogiri::HTML(open(url))
         @bpp_plays = []
