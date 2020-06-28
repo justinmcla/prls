@@ -8,17 +8,23 @@ class PRLS::CLI::PRO
         end
     end
 
-    def self.new_from_scrape(array)
-        array.each do |data|
-            self.new(data)
-        end
-    end
-
     def add_attr(hash)
         hash.each do |key, val|
             self.send("#{key}=", val) if self.respond_to?("#{key}=")
         end
         self
+    end
+
+    def need_attr?
+        if self.instance_variables.size < 5
+            true
+        end        
+    end
+
+    def self.new_from_scrape(array)
+        array.each do |data|
+            self.new(data)
+        end
     end
 
     def self.list_plays
@@ -51,15 +57,17 @@ class PRLS::CLI::PRO
         puts ""
         if self.all[index].summary == nil || self.all[index].summary == ""
             puts "No summary found."
+        else
+            puts self.all[index].summary.split.join(' ').wrap
         end
-        puts self.all[index].summary
         puts ""
         puts "REVIEWS"
         puts ""
         if self.all[index].blurb == nil || self.all[index].blurb == ""
             puts "No reviews found."
+        else
+            puts self.all[index].blurb.split.join(' ').wrap
         end
-        puts self.all[index].blurb
         puts ""
         puts "Learn more about #{self.all[index].title} here: #{self.all[index].url}"
         puts ""
