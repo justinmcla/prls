@@ -1,21 +1,20 @@
-require_relative 'lib/PRLS/version'
+require_relative 'lib/prls/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "PRLS"
+  spec.name          = "prls"
   spec.version       = PRLS::VERSION
   spec.authors       = ["justinmcla"]
   spec.email         = ["jwmclawhorn@gmail.com"]
 
   spec.summary       = "Fetches featured plays from Performance Rights Organizations (PROs)."
-  #spec.description   = %q{TODO: Write a longer description or delete this line.}
-  #spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.homepage      = "https://github.com/justinmcla/prls"
   spec.license       = "MIT"
   spec.required_ruby_version = Gem::Requirement.new(">= 2.3.0")
 
   spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
 
-#  spec.metadata["homepage_uri"] = spec.homepage
-#  spec.metadata["source_code_uri"] = "TODO: Put your gem's public repo URL here."
+  spec.metadata["homepage_uri"] = spec.homepage
+  spec.metadata["source_code_uri"] = "https://github.com/justinmcla/prls"
 #  spec.metadata["changelog_uri"] = "TODO: Put your gem's CHANGELOG.md URL here."
 
   # Specify which files should be added to the gem when it is released.

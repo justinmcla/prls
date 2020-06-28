@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
 
-require_relative '../lib/PRLS.rb'
+require_relative '../lib/prls.rb'
 
 PRLS::CLI.new.call
