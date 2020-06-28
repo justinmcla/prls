@@ -1,4 +1,4 @@
-PRLS
+prls
 
 Displays featured plays from major performing rights organizations (PROs).
 

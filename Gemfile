@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-# Specify your gem's dependencies in PRLS.gemspec
+# Specify your gem's dependencies in prls.gemspec
 gemspec
 
 gem "rake", "~> 12.0"
