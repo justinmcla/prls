@@ -40,11 +40,12 @@ class PRLS::CLI::PRO
             puts "Invalid entry, please try again."
             choice = gets.chomp
         end
-        self.play_details(choice.to_i - 1)
+        self.get_details(choice.to_i - 1)
+        self.list_details(choice.to_i - 1)
         choice = 0
     end
 
-    def self.play_details(index)
+    def self.list_details(index)
         puts ""
         puts "#{self.all[index].title} by #{self.all[index].author}"
         puts ""
@@ -61,7 +62,5 @@ class PRLS::CLI::PRO
             self.list_plays
         end
     end
-
-
 
 end

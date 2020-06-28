@@ -4,11 +4,11 @@ require 'open-uri'
 
 class PRLS::CLI::Scraper
 
-    attr_accessor :dps_data, :dps_plays, :dps_content,
-                    :mti_data, :mti_plays, :mti_content,
-                    :concord_data, :concord_plays, :concord_content,
-                    :playscripts_data, :playscripts_plays, :playscripts_content,
-                    :bpp_data, :bpp_plays, :bpp_content
+    attr_accessor :dps_plays, :dps_content,
+                    :mti_plays, :mti_content,
+                    :concord_plays, :concord_content,
+                    :playscripts_plays, :playscripts_content,
+                    :bpp_plays, :bpp_content
 
 
     def dps_index(url)
@@ -45,7 +45,6 @@ class PRLS::CLI::Scraper
 
     def mti_index(url)
         mti_index = Nokogiri::HTML(open(url))
-        #@mti_data = []
         @mti_plays = []
 
         mti_index.css('.alphabetical-item').each do |play|
@@ -54,16 +53,6 @@ class PRLS::CLI::Scraper
                 :url => play.css('a').attribute('href').value
             }
         end
-
-        #mti_index.css('.footer-address.footer-address-us.first').each do |play|
-        #    @mti_data << {
-        #        :name => play.css('.footer-address__title').text,
-        #        :street_1 => play.css('.footer-address__street').text,
-        #        :city_state_zip => play.css('.footer-address__city-state-zip').text,
-        #        :phone => play.css('.footer-address__phone-number').text
-        #    }
-        #end
-
         @mti_plays
     end
 
@@ -87,7 +76,7 @@ class PRLS::CLI::Scraper
         @mti_content[:author] = @mti_content[:author].uniq.join(', ')
 
         @mti_content
-        end
+    end
 
     def bpp_index(url)
         bpp_index = Nokogiri::HTML(open(url))
@@ -105,22 +94,16 @@ class PRLS::CLI::Scraper
     def bpp_info(url)
         bpp_data = Nokogiri::HTML(open(url))
         play = bpp_data.css('.product-essential')
-
-
         @bpp_content = {:author => play.css('.authorbilling').text, :blurb => []}
-        
         if play.css('.description p').first != nil
             @bpp_content[:summary] = play.css('.description p').first.text
         end
-
         play.css('#tab-reviews p').each do |review|
             if review != nil
             @bpp_content[:blurb] << review.text
             end
         end
-
         @bpp_content[:blurb] = @bpp_content[:blurb].join(' ')
-
         @bpp_content
     end
 
