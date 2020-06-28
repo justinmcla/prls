@@ -12,8 +12,10 @@ class PRLS::CLI::PLAYSCRIPTS < PRLS::CLI::PRO
     end
 
     def self.get_plays
-        url = "https://www.playscripts.com/find-a-play?sort=recentpopularity"
-        self.new_from_scrape(PRLS::CLI::Scraper.new.playscripts_index(url))
+        if self.all.empty?
+            url = "https://www.playscripts.com/find-a-play?sort=recentpopularity"
+            self.new_from_scrape(PRLS::CLI::Scraper.new.playscripts_index(url))
+        end
     end
 
     def self.list_plays
@@ -23,7 +25,9 @@ class PRLS::CLI::PLAYSCRIPTS < PRLS::CLI::PRO
     end
 
     def self.get_details(index)
-        self.all[index].add_attr(PRLS::CLI::Scraper.new.playscripts_info(self.all[index].url))
+        if self.all[index].need_attr?
+            self.all[index].add_attr(PRLS::CLI::Scraper.new.playscripts_info(self.all[index].url))
+        end
     end
 
 end

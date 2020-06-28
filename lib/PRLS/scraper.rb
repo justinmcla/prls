@@ -111,12 +111,12 @@ class PRLS::CLI::Scraper
     def playscripts_info(url)
         playscripts_info = Nokogiri::HTML(open(url))
         @playscripts_content = {
-            :summary => playscripts_info.css('.infos').css('.story-description').text,
+            :summary => playscripts_info.css('.infos').css('.story-description').text.split.join(' ').chomp(' Read More'),
             :author => playscripts_info.css('.infos').css('.playauthors').css('a').text,
         }
         blurb_check = playscripts_info.css('.script-more-info').css('.content').css('.p-review').first
         if blurb_check != nil
-            @playscripts_content[:blurb] = blurb_check.text
+            @playscripts_content[:blurb] = blurb_check.text.split.join(' ')
         end
         @playscripts_content
     end

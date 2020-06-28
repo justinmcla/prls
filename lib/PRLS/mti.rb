@@ -12,8 +12,10 @@ class PRLS::CLI::MTI < PRLS::CLI::PRO
     end
 
     def self.get_plays
-        url = "https://www.mtishows.com/shows/all"
-        self.new_from_scrape(PRLS::CLI::Scraper.new.mti_index(url))
+        if self.all.empty?
+            url = "https://www.mtishows.com/shows/all"
+            self.new_from_scrape(PRLS::CLI::Scraper.new.mti_index(url))
+        end
     end
 
     def self.list_plays
@@ -23,7 +25,9 @@ class PRLS::CLI::MTI < PRLS::CLI::PRO
     end
 
     def self.get_details(index)
-        self.all[index].add_attr(PRLS::CLI::Scraper.new.mti_info(self.all[index].url))
+        if self.all[index].need_attr?
+            self.all[index].add_attr(PRLS::CLI::Scraper.new.mti_info(self.all[index].url))
+        end
     end
 
 end
