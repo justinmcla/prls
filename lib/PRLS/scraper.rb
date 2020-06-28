@@ -1,7 +1,3 @@
-require 'nokogiri'
-require 'open-uri'
-
-
 class PRLS::CLI::Scraper
 
     attr_accessor :dps_plays, :dps_content,

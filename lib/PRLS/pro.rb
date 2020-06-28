@@ -21,10 +21,6 @@ class PRLS::CLI::PRO
         self
     end
 
-    def self.reset_all
-        self.all.clear
-    end
-
     def self.list_plays
         puts ""
         index = 0
@@ -47,10 +43,22 @@ class PRLS::CLI::PRO
 
     def self.list_details(index)
         puts ""
+        puts "TITLE"
+        puts ""
         puts "#{self.all[index].title} by #{self.all[index].author}"
         puts ""
+        puts "SUMMARY"
+        puts ""
+        if self.all[index].summary == nil || self.all[index].summary == ""
+            puts "No summary found."
+        end
         puts self.all[index].summary
         puts ""
+        puts "REVIEWS"
+        puts ""
+        if self.all[index].blurb == nil || self.all[index].blurb == ""
+            puts "No reviews found."
+        end
         puts self.all[index].blurb
         puts ""
         puts "Learn more about #{self.all[index].title} here: #{self.all[index].url}"
