@@ -18,8 +18,6 @@ class PRLS::CLI::CONCORD < PRLS::CLI::PRO
 
     def self.list_plays
         puts ""
-        puts "Loading..."
-        puts ""
         puts "Here are Concord Theatrical's featured plays:"
         super
     end

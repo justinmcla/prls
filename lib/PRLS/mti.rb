@@ -18,8 +18,6 @@ class PRLS::CLI::MTI < PRLS::CLI::PRO
 
     def self.list_plays
         puts ""
-        puts "Loading..."
-        puts ""
         puts "Here are Music Theatre International's featured plays:"
         super
     end

@@ -18,8 +18,6 @@ class PRLS::CLI::PLAYSCRIPTS < PRLS::CLI::PRO
 
     def self.list_plays
         puts ""
-        puts "Loading..."
-        puts ""
         puts "Here are Playscripts, Inc.'s featured plays:"
         super
     end

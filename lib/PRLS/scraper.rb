@@ -13,7 +13,6 @@ class PRLS::CLI::Scraper
 
     def dps_index(url)
         dps_index = Nokogiri::HTML(open(url))
-         #@dps_data = []
         @dps_plays = []
 
         dps_index.css('table td a').each do |play|
@@ -24,7 +23,6 @@ class PRLS::CLI::Scraper
             }
             end
         end
-        #@dps_data << dps_index.css('.responsadjust-fcol p').text
         @dps_plays
     end
 
@@ -34,7 +32,6 @@ class PRLS::CLI::Scraper
 
         dps_info.css('#single').each do |content|
             @dps_content = {
-                :title => content.css('#maxtitleheight').text,
                 :author => content.css('#authorname').text,
                 :summary => content.css('#lexisynopsis').text,
                 :blurb => content.css('.lexishorttext').text
@@ -62,7 +59,6 @@ class PRLS::CLI::Scraper
 
           mti_data.css('.group-content-main').each do |content|
             @mti_content = {
-                :name => content.css('.page-title').text,
                 :author => [],
                 :summary => content.css('.show__summary').text,
                 :blurb => content.css('.show__brief').text
@@ -81,7 +77,6 @@ class PRLS::CLI::Scraper
     def bpp_index(url)
         bpp_index = Nokogiri::HTML(open(url))
         @bpp_plays = []
-
         bpp_index.css('.product-details').each do |play|
             @bpp_plays << {
                 :title => play.css('a').text.chomp(' [read more]'),
@@ -106,8 +101,6 @@ class PRLS::CLI::Scraper
         @bpp_content[:blurb] = @bpp_content[:blurb].join(' ')
         @bpp_content
     end
-
-
 
 end
 

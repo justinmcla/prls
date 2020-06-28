@@ -18,8 +18,6 @@ class PRLS::CLI::BPP < PRLS::CLI::PRO
 
     def self.list_plays
         puts ""
-        puts "Loading..."
-        puts ""
         puts "Here are Broadway Play Publishing, Inc.'s featured plays:"
         super
     end

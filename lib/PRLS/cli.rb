@@ -35,6 +35,9 @@ class PRLS::CLI
         while input != 'exit'
         pros
         input = gets.chomp.downcase
+        puts ""
+        puts "Loading..."
+        puts ""
         case input.to_s
         when '1'
             DPS.get_plays
