@@ -18,7 +18,7 @@ class PRLS::CLI
         puts "1. Dramatist's Play Service, Inc."
         puts "2. Concord Theatricals (formerly Samuel French, Ltd.)"
         puts "3. Music Theatre International"
-        puts "4. Playscripts, Inc. ****TO BE ADDED****"
+        puts "4. Playscripts, Inc."
         puts "5. Broadway Play Publishing, Inc."
         puts ""
         puts "To exit, type 'exit'."
