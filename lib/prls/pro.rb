@@ -36,6 +36,8 @@ class PRLS::CLI::PRO
         end
         puts ""
         puts "Which play would you like to learn more about?"
+        puts "To return to the PROs menu, type 'pros'."
+        puts "To exit, type 'exit'."
         puts ""
         choice = gets.chomp
         if choice.downcase == 'pros'
