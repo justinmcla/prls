@@ -28,7 +28,9 @@ Or install it yourself as:
 
 ## Usage
 
+After install:
 
+    $ prls
 
 ## Development
 
