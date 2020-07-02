@@ -19,9 +19,9 @@ Gem::Specification.new do |spec|
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
-  spec.files         = Dir.chdir(File.expand_path('..', __FILE__)) do
-    `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
-  end
+  spec.files         = ['lib/prls.rb','lib/prls/bpp.rb','lib/prls/cli.rb','lib/prls/concord.rb','lib/prls/dps.rb',
+                        'lib/prls/mti.rb', 'lib/prls/playscripts.rb', 'lib/prls/pro.rb', 'lib/prls/scraper.rb',
+                        'lib/prls/version.rb']
   spec.bindir        = "bin"
   spec.executables   << 'prls'
   spec.require_paths = ["lib"]
