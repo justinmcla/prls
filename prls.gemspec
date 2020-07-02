@@ -19,4 +19,11 @@ Gem::Specification.new do |spec|
   spec.bindir        = "bin"
   spec.executables   << 'prls'
   spec.require_paths = ["lib"]
+  
+  spec.add_dependency "word_wrap"
+  spec.add_dependency "rake"
+  spec.add_dependency "nokogiri"
+  spec.add_dependency "rspec"
+
+
 end
