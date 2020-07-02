@@ -3,7 +3,7 @@ require_relative 'lib/prls/version'
 Gem::Specification.new do |spec|
   spec.name          = "prls"
   spec.version       = PRLS::VERSION
-  spec.authors       = ["justinmcla"]
+  spec.authors       = ["Justin McLawhorn"]
   spec.email         = ["jwmclawhorn@gmail.com"]
 
   spec.summary       = "Fetches featured plays from Performance Rights Organizations (PROs)."
@@ -23,6 +23,6 @@ Gem::Specification.new do |spec|
     `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   end
   spec.bindir        = "exe"
-  spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
+  spec.executables   << 'prls'
   spec.require_paths = ["lib"]
 end
