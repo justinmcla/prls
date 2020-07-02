@@ -38,6 +38,12 @@ class PRLS::CLI::PRO
         puts "Which play would you like to learn more about?"
         puts ""
         choice = gets.chomp
+        if choice.downcase == 'pros'
+            PRLS::CLI.session.call
+        elsif choice.downcase == 'exit'
+            puts 'Exiting...'
+            exit
+        end
         while choice.to_i > self.all.size + 1
             puts "Invalid entry, please try again."
             choice = gets.chomp

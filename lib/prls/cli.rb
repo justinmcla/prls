@@ -1,5 +1,15 @@
 class PRLS::CLI
 
+    SESSION = []
+
+    def initialize
+        SESSION << self
+    end
+
+    def self.session 
+        SESSION.first
+    end
+
     def call
         header
         menu
@@ -63,6 +73,7 @@ class PRLS::CLI
             BPP.list_plays
         when 'exit'
             puts 'Exiting...'
+            exit
         else
             puts 'Invalid entry. Please try again.'
             puts ""

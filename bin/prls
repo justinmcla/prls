@@ -2,4 +2,4 @@
 
 require_relative '../lib/prls.rb'
 
-PRLS::CLI.new.call
+session = PRLS::CLI.new.call
