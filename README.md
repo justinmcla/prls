@@ -32,6 +32,54 @@ After install:
 
     $ prls
 
+This will load the user interface:
+
+    PERFORMING RIGHTS LOOKUP SERVICE
+    --------------------------------
+    
+    Select a PRO to see their currently featured plays:
+
+    1. Dramatist's Play Service, Inc.
+    2. Concord Theatricals (formerly Samuel French, Ltd.)
+    3. Music Theatre International
+    4. Playscripts, Inc.
+    5. Broadway Play Publishing, Inc.
+
+    To exit, type 'exit'.
+
+Entering a pro will fetch information from that website, create play objects, and list them for further inspection.
+
+    $ 1
+
+    Loading...
+
+    Here are Dramatist's Play Service, Inc.'s featured plays:
+
+    1. Accidentally Brave
+    2. All the Days
+    3. Aunt Jack
+    4. BLKS
+    5. Deliver Us from Mama!
+    6. Five Times in One Night
+    7. Free Free Free Free
+    8. Gary: A Sequel to Titus Andronicus
+    9. Good Grief
+    10. The Homecoming Queen
+    11. Jump
+    12. Long Lost
+    13. Mac Beth
+    14. Open
+    15. Passage
+    16. Sheepdog
+    17. Six Years Old
+    18. We Are Pussy Riot or Everything Is P.R.
+
+    Which play would you like to learn more about?
+    To return to the PROs menu, type 'pros'.
+    To exit, type 'exit'.
+
+User may loop through and learn more about as many plays from as many pros as they wish.
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
