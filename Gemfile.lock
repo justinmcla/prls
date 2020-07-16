@@ -1,7 +1,11 @@
 PATH
   remote: .
   specs:
-    prls (0.1.2)
+    prls (0.1.3)
+      nokogiri
+      rake
+      rspec
+      word_wrap
 
 GEM
   remote: https://rubygems.org/
