@@ -20,14 +20,7 @@ class PRLS::CLI::Scraper
 
     def concord_index(url)
         concord_index = Nokogiri::HTML(open(url))
-        @concord_plays = []
-        concord_index.css('.card__item--text').each do |play|
-            @concord_plays << {
-                :title => play.css('a').text,
-                :url => "https://www.concordtheatricals.com#{play.css('a').attribute('href').value}"
-            }
-        end
-        @concord_plays
+        concord_index.css('.card__item--text').map { |play| {:title => play.css('a').text, :url => "https://www.concordtheatricals.com#{play.css('a').attribute('href').value}"} }
     end
 
     def concord_info(url)
