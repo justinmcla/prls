@@ -59,14 +59,7 @@ class PRLS::CLI::Scraper
 
     def bpp_index(url)
         bpp_index = Nokogiri::HTML(open(url))
-        @bpp_plays = []
-        bpp_index.css('.product-details').each do |play|
-            @bpp_plays << {
-                :title => play.css('a').text.chomp(' [read more]'),
-                :url => play.css('a').attribute('href').value
-            }
-        end
-        @bpp_plays
+        bpp_index.css('.product-details').map { |play| {:title => play.css('a').text.chomp(' [read more]'), :url => play.css('a').attribute('href').value} }
     end
 
     def bpp_info(url)
