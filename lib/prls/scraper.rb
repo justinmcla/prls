@@ -14,16 +14,8 @@ class PRLS::CLI::Scraper
 
     def dps_info(url)
         dps_info = Nokogiri::HTML(open(url))
-        @dps_content = {}
-
-        dps_info.css('#single').each do |content|
-            @dps_content = {
-                :author => content.css('#authorname').text,
-                :summary => content.css('#lexisynopsis').text,
-                :blurb => content.css('.lexishorttext').text
-            }
-        end
-        @dps_content
+        content = dps_info.css('#single')
+        dps_info = [content.css('#authorname').text, content.css('#lexisynopsis').text, content.css('.lexishorttext').text]
     end
 
     def concord_index(url)
