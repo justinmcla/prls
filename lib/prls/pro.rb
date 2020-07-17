@@ -15,6 +15,15 @@ class PRLS::CLI::PRO
         self
     end
 
+    def add_attr_array(array)
+        attr_hash = {
+            :author => array[0],
+            :summary => array[1],
+            :blurb => array[2]
+        }
+        add_attr(attr_hash)
+    end
+
     def need_attr?
         if self.instance_variables.size < 5
             true
