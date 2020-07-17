@@ -43,14 +43,7 @@ class PRLS::CLI::Scraper
 
     def playscripts_index(url)
         playscripts_index = Nokogiri::HTML(open(url))
-        @playscripts_plays = []
-        playscripts_index.css('.theater-story').each do |play|
-            @playscripts_plays << {
-                :title => play.css('.infos').css('.text').text,
-                :url => "https://www.playscripts.com#{play.css('.infos').css('a').attribute('href').value}"
-            }
-        end
-        @playscripts_plays
+        playscripts_index.css('.theater-story').map { |play| {:title => play.css('.infos').css('.text').text, :url => "https://www.playscripts.com#{play.css('.infos').css('a').attribute('href').value}"} }
     end
 
     def playscripts_info(url)
