@@ -31,15 +31,7 @@ class PRLS::CLI::Scraper
 
     def mti_index(url)
         mti_index = Nokogiri::HTML(open(url))
-        @mti_plays = []
-
-        mti_index.css('.alphabetical-item').each do |play|
-            @mti_plays << {
-                :title => play.css('span').text,
-                :url => play.css('a').attribute('href').value
-            }
-        end
-        @mti_plays
+        mti_index.css('.alphabetical-item').map { |play| {:title => play.css('span').text, :url => play.css('a').attribute('href').value} }
     end
 
     def mti_info(url)
