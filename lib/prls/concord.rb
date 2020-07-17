@@ -26,7 +26,7 @@ class PRLS::CLI::CONCORD < PRLS::CLI::PRO
 
     def self.get_details(index)
         if self.all[index].need_attr?
-            self.all[index].add_attr(PRLS::CLI::Scraper.new.concord_info(self.all[index].url))
+            self.all[index].add_attr_array(PRLS::CLI::Scraper.new.concord_info(self.all[index].url))
         end
     end
 
