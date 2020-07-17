@@ -9,17 +9,7 @@ class PRLS::CLI::Scraper
 
     def dps_index(url)
         dps_index = Nokogiri::HTML(open(url))
-        @dps_plays = []
-
-        dps_index.css('table td a').each do |play|
-            if play != nil
-            @dps_plays << {
-                :title => play.text,
-                :url => play.attribute('href').value
-            }
-            end
-        end
-        @dps_plays
+        dps_index.css('table td a').map { |play| {:title => play.text, :url => play.attribute('href').value} } 
     end
 
     def dps_info(url)
