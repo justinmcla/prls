@@ -68,7 +68,11 @@ class PRLS::CLI::PRO
         puts ""
         puts "TITLE"
         puts ""
-        puts "#{self.all[index].title} by #{self.all[index].author}"
+        if self.all[index].author == nil || self.all[index].author == ""
+            puts "#{self.all[index].title} by Anonymous/Unknown"
+        else
+            puts "#{self.all[index].title} by #{self.all[index].author}"
+        end
         puts ""
         puts "SUMMARY"
         puts ""
