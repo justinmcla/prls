@@ -1,12 +1,5 @@
 class PRLS::CLI::Scraper
 
-    attr_accessor :dps_plays, :dps_content,
-                    :mti_plays, :mti_content,
-                    :concord_plays, :concord_content,
-                    :playscripts_plays, :playscripts_content,
-                    :bpp_plays, :bpp_content
-
-
     def dps_index(url)
         dps_index = Nokogiri::HTML(open(url))
         dps_index.css('table td a').map { |play| {:title => play.text, :url => play.attribute('href').value} } 
