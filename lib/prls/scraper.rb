@@ -25,16 +25,19 @@ class PRLS::CLI::Scraper
 
     def concord_info(url)
         concord_info = Nokogiri::HTML(open(url))
-        @concord_content = {
-            :author => concord_info.css('.type-large-credits').css('a').text,
-            :summary => concord_info.css('.pdp-section .type-regular').css('.longer-content').text,
-            :blurb => []
-        }
-        concord_info.css('type-regular').css('.pdp-sub-section').each do |review|
-            @concord_content[:blurb] << review.text
-        end
-        @concord_content[:blurb] = @concord_content[:blurb].join(' ')
-        @concord_content
+        blurbs = concord_info.css('type-regular').css('.pdp-sub-section').map { |review| review.text }
+        [concord_info.css('.type-large-credits').css('a').text, concord_info.css('.pdp-section .type-regular').css('.longer-content').text, blurbs.join(' ')]
+
+        #@concord_content = {
+        #    :author => concord_info.css('.type-large-credits').css('a').text,
+        #    :summary => concord_info.css('.pdp-section .type-regular').css('.longer-content').text,
+        #    :blurb => []
+        #}
+        #concord_info.css('type-regular').css('.pdp-sub-section').each do |review|
+        #    @concord_content[:blurb] << review.text
+        #end
+        #@concord_content[:blurb] = @concord_content[:blurb].join(' ')
+        #@concord_content
     end
 
     def mti_index(url)
