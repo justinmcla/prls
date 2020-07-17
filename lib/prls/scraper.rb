@@ -36,23 +36,9 @@ class PRLS::CLI::Scraper
 
     def mti_info(url)
         mti_data = Nokogiri::HTML(open(url))
-        @mti_content = {}
-
-          mti_data.css('.group-content-main').each do |content|
-            @mti_content = {
-                :author => [],
-                :summary => content.css('.show__summary').text,
-                :blurb => content.css('.show__brief').text
-            }
-        end
-
-        mti_data.css('.show__attributions .attribution__author-name').each do |author|
-            @mti_content[:author] << author.text
-        end
-
-        @mti_content[:author] = @mti_content[:author].uniq.join(', ')
-
-        @mti_content
+        authors = mti_data.css('.show__attributions .attribution__author-name').map { |author| author.text}
+        content = mti_data.css('.group-content-main')
+        [authors.uniq.join(', '), content.css('.show__summary').text, content.css('.show__brief').text]
     end
 
     def playscripts_index(url)
