@@ -58,13 +58,9 @@ class PRLS::CLI::Scraper
     def bpp_info(url)
         bpp_data = Nokogiri::HTML(open(url))
         summary = []
-        if bpp_data.css('.product-essential').css('.description p').first != nil
-            summary = bpp_data.css('.product-essential').css('.description p').first.text
-        end
+        summary = bpp_data.css('.product-essential').css('.description p').first.text if !bpp_data.css('.product-essential').css('.description p').first.nil?
         blurb = []
-        if bpp_data.css('.product-essential').css('#tab-reviews p') != nil
-            blurb = bpp_data.css('.product-essential').css('#tab-reviews p').text
-        end
+        blurb = bpp_data.css('.product-essential').css('#tab-reviews p').text if !bpp_data.css('.product-essential').css('#tab-reviews p').nil?
         [bpp_data.css('.product-essential').css('.authorbilling').text, summary, blurb]
     end
 
