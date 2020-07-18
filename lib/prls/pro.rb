@@ -40,7 +40,6 @@ class PRLS::CLI::PRO
 
     def self.list_plays
         puts ""
-        index = 0
         self.all.each.with_index { |play, index| puts "#{index + 1}. #{play.title}" }
         puts ""
         puts "Which play would you like to learn more about?"
