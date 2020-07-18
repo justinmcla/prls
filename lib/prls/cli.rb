@@ -36,8 +36,6 @@ class PRLS::CLI
     end
 
     def menu
-        input = nil
-        while input != 'exit'
         pros
         input = gets.chomp.downcase
         case input.to_s
@@ -63,7 +61,6 @@ class PRLS::CLI
             puts 'Invalid entry. Please try again.'
             puts ""
             menu
-        end
         end
     end
 
