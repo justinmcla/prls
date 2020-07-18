@@ -25,9 +25,7 @@ class PRLS::CLI::PRO
     end
 
     def need_attr?
-        if self.instance_variables.size < 5
-            true
-        end        
+        self.instance_variables.size < 5 ? true : false        
     end
 
     def self.new_from_scrape(array)
