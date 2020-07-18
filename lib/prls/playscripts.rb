@@ -1,16 +1,5 @@
 class PRLS::CLI::PLAYSCRIPTS < PRLS::CLI::PRO
     
-    PLAYSCRIPTS_PLAYS = []
-
-    def initialize(attributes)
-        super
-        PLAYSCRIPTS_PLAYS << self
-    end
-
-    def self.all
-        PLAYSCRIPTS_PLAYS
-    end
-
     def self.get_plays
         if self.all.empty?
             url = "https://www.playscripts.com/find-a-play?sort=recentpopularity"

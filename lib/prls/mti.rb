@@ -1,16 +1,5 @@
 class PRLS::CLI::MTI < PRLS::CLI::PRO
     
-    MTI_PLAYS = []
-
-    def initialize(attributes)
-        super
-        MTI_PLAYS << self
-    end
-
-    def self.all
-        MTI_PLAYS
-    end
-
     def self.get_plays
         if self.all.empty?
             url = "https://www.mtishows.com/shows/all"

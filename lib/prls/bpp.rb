@@ -1,15 +1,4 @@
 class PRLS::CLI::BPP < PRLS::CLI::PRO
-    
-    BPP_PLAYS = []
-
-    def initialize(attributes)
-        super
-        BPP_PLAYS << self
-    end
-
-    def self.all
-        BPP_PLAYS
-    end
 
     def self.get_plays
         if self.all.empty?

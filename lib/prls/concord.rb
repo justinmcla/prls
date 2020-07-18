@@ -1,16 +1,5 @@
 class PRLS::CLI::CONCORD < PRLS::CLI::PRO
     
-    CONCORD_PLAYS = []
-
-    def initialize(attributes)
-        super
-        CONCORD_PLAYS << self
-    end
-
-    def self.all
-        CONCORD_PLAYS
-    end
-
     def self.get_plays
         if self.all.empty?
             url = "https://www.concordtheatricals.com/perform/plays"
