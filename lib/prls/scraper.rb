@@ -8,7 +8,7 @@ class PRLS::CLI::Scraper
     def dps_info(url)
         dps_info = Nokogiri::HTML(open(url))
         content = dps_info.css('#single')
-        dps_info = [content.css('#authorname').text, content.css('#lexisynopsis').text, content.css('.lexishorttext').text]
+        [content.css('#authorname').text, content.css('#lexisynopsis').text, content.css('.lexishorttext').text]
     end
 
     def concord_index(url)
