@@ -28,6 +28,12 @@ class PRLS::CLI::PRO
         array.each { |data| self.new(data) }
     end
 
+    def self.get_plays
+        puts ""
+        puts "Loading..."
+        puts ""
+    end
+
     def self.list_plays
         puts ""
         self.all.each.with_index { |play, index| puts "#{index + 1}. #{play.title}" }
