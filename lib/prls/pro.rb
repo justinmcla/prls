@@ -69,27 +69,15 @@ class PRLS::CLI::PRO
         puts ""
         puts "TITLE"
         puts ""
-        if self.all[index].author.empty?
-            puts "#{self.all[index].title} by Anonymous/Unknown"
-        else
-            puts "#{self.all[index].title} by #{self.all[index].author}"
-        end
+        self.all[index].author.empty? ? (puts "#{self.all[index].title} by Anonymous/Unknown") : (puts "#{self.all[index].title} by #{self.all[index].author}")
         puts ""
         puts "SUMMARY"
         puts ""
-        if self.all[index].summary.empty?
-            puts "No summary found."
-        else
-            puts self.all[index].summary.split.join(' ').wrap
-        end
+        self.all[index].summary.empty? ? (puts "No summary found.") : (puts self.all[index].summary.split.join(' ').wrap)
         puts ""
         puts "REVIEWS"
         puts ""
-        if self.all[index].blurb.empty?
-            puts "No reviews found."
-        else
-            puts self.all[index].blurb.split.join(' ').wrap
-        end
+        self.all[index].blurb.empty? ? (puts "No reviews found.") : (puts self.all[index].blurb.split.join(' ').wrap)
         puts ""
         puts "Learn more about #{self.all[index].title} here: #{self.all[index].url}"
         puts ""
