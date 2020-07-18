@@ -69,7 +69,7 @@ class PRLS::CLI::PRO
         puts ""
         puts "TITLE"
         puts ""
-        if self.all[index].author == nil || self.all[index].author == ""
+        if self.all[index].author.empty?
             puts "#{self.all[index].title} by Anonymous/Unknown"
         else
             puts "#{self.all[index].title} by #{self.all[index].author}"
@@ -77,7 +77,7 @@ class PRLS::CLI::PRO
         puts ""
         puts "SUMMARY"
         puts ""
-        if self.all[index].summary == nil || self.all[index].summary == ""
+        if self.all[index].summary.empty?
             puts "No summary found."
         else
             puts self.all[index].summary.split.join(' ').wrap
@@ -85,7 +85,7 @@ class PRLS::CLI::PRO
         puts ""
         puts "REVIEWS"
         puts ""
-        if self.all[index].blurb == nil || self.all[index].blurb == ""
+        if self.all[index].blurb.empty?
             puts "No reviews found."
         else
             puts self.all[index].blurb.split.join(' ').wrap
