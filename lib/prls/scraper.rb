@@ -41,7 +41,7 @@ class PRLS::CLI::Scraper
 
     def playscripts_info(url)
         playscripts_info = Nokogiri::HTML(open(url))
-        blurb = nil
+        blurb = []
         if playscripts_info.css('.script-more-info').css('.content').css('.p-review').first != nil
             blurb = playscripts_info.css('.script-more-info').css('.content').css('.p-review').first.text.split.join(' ')
         end
@@ -57,11 +57,11 @@ class PRLS::CLI::Scraper
 
     def bpp_info(url)
         bpp_data = Nokogiri::HTML(open(url))
-        summary = nil
+        summary = []
         if bpp_data.css('.product-essential').css('.description p').first != nil
             summary = bpp_data.css('.product-essential').css('.description p').first.text
         end
-        blurb = nil
+        blurb = []
         if bpp_data.css('.product-essential').css('#tab-reviews p') != nil
             blurb = bpp_data.css('.product-essential').css('#tab-reviews p').text
         end
