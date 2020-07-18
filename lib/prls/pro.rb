@@ -29,9 +29,7 @@ class PRLS::CLI::PRO
     end
 
     def self.new_from_scrape(array)
-        array.each do |data|
-            self.new(data)
-        end
+        array.each { |data| self.new(data) }
     end
 
     def self.list_plays
