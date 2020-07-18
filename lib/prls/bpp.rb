@@ -8,6 +8,7 @@ class PRLS::CLI::BPP < PRLS::CLI::PRO
 
     def self.get_plays
         if self.all.empty?
+            super
             url = "https://www.broadwayplaypub.com/catalog/plays/newly-published/?paged=&count=90"
             self.new_from_scrape(PRLS::CLI::Scraper.new.bpp_index(url))
         end

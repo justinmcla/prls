@@ -8,6 +8,7 @@ class PRLS::CLI::MTI < PRLS::CLI::PRO
     
     def self.get_plays
         if self.all.empty?
+            super
             url = "https://www.mtishows.com/shows/all"
             self.new_from_scrape(PRLS::CLI::Scraper.new.mti_index(url))
         end

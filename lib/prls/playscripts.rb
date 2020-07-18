@@ -8,6 +8,7 @@ class PRLS::CLI::PLAYSCRIPTS < PRLS::CLI::PRO
     
     def self.get_plays
         if self.all.empty?
+            super
             url = "https://www.playscripts.com/find-a-play?sort=recentpopularity"
             self.new_from_scrape(PRLS::CLI::Scraper.new.playscripts_index(url))
         end
