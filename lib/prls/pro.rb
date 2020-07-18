@@ -63,7 +63,6 @@ class PRLS::CLI::PRO
         end
         self.get_details(choice.to_i - 1)
         self.list_details(choice.to_i - 1)
-        choice = 0
     end
 
     def self.list_details(index)
