@@ -51,7 +51,7 @@ class PRLS::CLI::PRO
             puts 'Exiting...'
             exit
         end
-        while choice.to_i > self.all.size + 1
+        while choice.to_i <= 0 || choice.to_i > self.all.size
             puts "Invalid entry, please try again."
             choice = gets.chomp
         end
