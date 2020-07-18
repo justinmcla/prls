@@ -1,5 +1,11 @@
 class PRLS::CLI::BPP < PRLS::CLI::PRO
 
+    BPP_PLAYS = []
+
+    def self.all
+        BPP_PLAYS
+    end
+
     def self.get_plays
         if self.all.empty?
             url = "https://www.broadwayplaypub.com/catalog/plays/newly-published/?paged=&count=90"

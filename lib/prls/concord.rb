@@ -1,4 +1,10 @@
 class PRLS::CLI::CONCORD < PRLS::CLI::PRO
+
+    CONCORD_PLAYS = []
+
+    def self.all
+        CONCORD_PLAYS
+    end
     
     def self.get_plays
         if self.all.empty?

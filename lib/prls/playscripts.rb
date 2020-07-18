@@ -1,4 +1,10 @@
 class PRLS::CLI::PLAYSCRIPTS < PRLS::CLI::PRO
+
+    PLAYSCRIPTS_PLAYS = []
+
+    def self.all
+        PLAYSCRIPTS_PLAYS
+    end
     
     def self.get_plays
         if self.all.empty?

@@ -1,4 +1,10 @@
 class PRLS::CLI::MTI < PRLS::CLI::PRO
+
+    MTI_PLAYS = []
+
+    def self.all
+        MTI_PLAYS
+    end
     
     def self.get_plays
         if self.all.empty?

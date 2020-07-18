@@ -1,5 +1,11 @@
 class PRLS::CLI::DPS < PRLS::CLI::PRO
 
+    DPS_PLAYS = []
+
+    def self.all
+        DPS_PLAYS
+    end
+
     def self.get_plays
         if self.all.empty?
             url = "https://www.dramatists.com/dps/nowpublished.aspx"
