@@ -1,24 +1,14 @@
 class PRLS::CLI::PRO
 
     attr_accessor :title, :author, :summary, :blurb, :url
-    @@all = []
 
     def initialize(attributes)
-        attributes.each do |key, val|
-            self.send("#{key}=", val) if self.respond_to?("#{key}=")
-        end
-        @@all << self
-    end
-
-    def self.all
-        @@all
+        attributes.each { |key, val| self.send("#{key}=", val) if self.respond_to?("#{key}=") }
+        self.class.all << self
     end
 
     def add_attr(hash)
-        hash.each do |key, val|
-            self.send("#{key}=", val) if self.respond_to?("#{key}=")
-        end
-        self
+        hash.each { |key, val| self.send("#{key}=", val) if self.respond_to?("#{key}=") }
     end
 
     def add_attr_array(array)
