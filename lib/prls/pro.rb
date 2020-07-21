@@ -75,10 +75,7 @@ class PRLS::CLI::PRO
         puts ""
         puts "Would you like to learn more about another play? Y/N"
         input = gets.chomp
-        if input.downcase == 'y'
-            puts ""
-            self.list_plays
-        end
+        input.downcase == 'y' ? self.list_plays : (puts "Exiting..." ; exit)
     end
 
 end
